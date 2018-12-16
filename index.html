@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+  <head>
+    <meta charset="utf-8">
+    <title>DAI Days</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Bhaijaan" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    
+    
+    <style>
+      body {
+        font-family: 'Baloo Bhaijaan', cursive;
+      }
+      
+      .range_box {
+        height: 31px;
+      }
+      
+    </style>
+  </head>
+  
+  <body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning mb-3">
+      <a class="navbar-brand" href="#">DAI Days</a>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item my-auto">
+            <span>Created by yokonoji</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://yokonoji.work/"><i class="fab fa-wordpress"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://twitter.com/yokonoji_work"><i class="fab fa-twitter"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="container mb-5">
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-8">
+<!--          <img src="ad.png">-->
+        </div>
+      </div>
+      
+      <div class="row justify-content-center mb-4">
+        <div class="col-md-4">
+          <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/currency.js"></script>
+          <div class="coinmarketcap-currency-widget" data-currencyid="1027" data-base="USD" data-secondary="BTC" data-ticker="true" data-rank="false" data-marketcap="false" data-volume="false" data-stats="USD" data-statsticker="false"></div>
+        </div>
+        <div class="col-md-4">
+          <div class="coinmarketcap-currency-widget" data-currencyid="2308" data-base="USD" data-secondary="BTC" data-ticker="true" data-rank="false" data-marketcap="false" data-volume="false" data-stats="USD" data-statsticker="false"></div>
+        </div>
+      </div>
+      
+      <div class="row justify-content-center mb-3">
+        <div class="col-md-5">
+<!--
+          <h3>Number of DAI you can borrow</h3>
+          
+          <p>You can borrow : <span id="output1" class="text-warning">0</span> DAI <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Borrowing limit"><i class="far fa-question-circle"></i></span></p>
+          
+          <p>Collateral to debt ratio : <span id="output4" class="text-warning">0</span> % <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Keep over 150%"><i class="far fa-question-circle"></i></span></p>
+-->
+
+        </div>
+        <div class="col-md-5">
+<!--
+          <h3>Check your collateral to debt ratio</h3>
+          
+          <p>Collateral to debt ratio : <span id="output2" class="text-warning">0</span> % <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Keep over 150%"><i class="far fa-question-circle"></i></span></p>
+          
+          <p>CDP breaks down : 1ETH = <span id="output3" class="text-warning">0</span> USD <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Please keep over 150%."><i class="far fa-question-circle"></i></span></p>
+-->
+          
+        </div>
+      </div>
+      
+      <div class="row justify-content-center">
+        <!--Number of DAI you can borrow-->
+        <div class="col-md-5">
+          <div class="mb-4">
+            <h3>Number of DAI you can borrow</h3>
+
+            <p>You can borrow : <span id="output1" class="text-warning">0</span> DAI</p>
+
+            <p>Collateral to debt ratio : <span id="output4" class="text-warning">0</span> % <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Keep over 150%"><i class="far fa-question-circle"></i></span></p>
+          </div>
+          
+          <form>
+            <div class="form-row mb-3">
+              <div class="col">
+                ETH Price
+                <input id="ethPrice" class="form-control" type="text" autocomplete="off" value="88" placeholder="USD" name="eth">
+              </div>
+              
+              <div class="col">
+                <span class="mr-2">Balance</span>
+                  <form id="lradio">
+                    <div class="custom-control custom-radio custom-control-inline mr-1">
+                      <input type="radio" id="lradio1" name="radio1" checked="checked" class="custom-control-input" value="ETH">
+                      <label class="custom-control-label" for="lradio1">ETH</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline mr-1">
+                      <input type="radio" id="lradio2" name="radio1" class="custom-control-input" value="PETH">
+                      <label class="custom-control-label" for="lradio2">PETH</label>
+                    </div>           
+                  </form>
+                
+                <input id="ethAmount" class="form-control" type="text" autocomplete="off" value="32" placeholder="" name="eth">
+              </div>
+            </div>
+            <div class="form-row mb-3">
+              <div class="col">
+                <span>Borrowing ratio : </span><span id="rateValue">30</span><span> %</span>
+                <input id="range" type="range" class="custom-range range_box" min="1" max="66" step="1" value="30">
+              </div>
+            </div>
+            <button id="ok1" type="button" class="btn btn-warning float-right">OK</button>
+          </form>
+        </div>
+        
+        <!--Check your collateral to debt ratio-->
+        <div class="col-md-5">
+          <div class="mb-4">
+            <h3>Check your collateral to debt ratio</h3>
+          
+            <p>Collateral to debt ratio : <span id="output2" class="text-warning">0</span> % <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Keep over 150%"><i class="far fa-question-circle"></i></span></p>
+
+            <p>CDP breaks down : 1ETH = <span id="output3" class="text-warning">0</span> USD</p>
+          </div>
+          
+          <form>
+            <div class="form-row mb-3">
+              <div class="col">
+                ETH Price
+                <input id="ethPrice2" class="form-control" type="text" autocomplete="off" value="88" placeholder="USD" name="eth">
+              </div>
+              <div class="col">
+                <span class="mr-2">Balance</span>
+                <form id="rradio">
+                  <div class="custom-control custom-radio custom-control-inline mr-1">
+                    <input type="radio" id="rradio1" name="radio2" checked="checked" class="custom-control-input" value="ETH">
+                    <label class="custom-control-label" for="rradio1">ETH</label>
+                  </div>
+                  <div class="custom-control custom-radio custom-control-inline mr-1">
+                    <input type="radio" id="rradio2" name="radio2" class="custom-control-input" value="PETH">
+                  <label class="custom-control-label" for="rradio2">PETH</label>
+                  </div>
+                </form>
+                
+                <input id="ethAmount2" class="form-control" type="text" autocomplete="off" value="32" placeholder="" name="eth">
+              </div>
+            </div>
+            <div class="form-row mb-3">
+              <div class="col">
+                DAI Balance
+                <input id="daiAmount2" class="form-control" type="text" autocomplete="off" value="100" placeholder="" name="eth">
+              </div>
+            </div>
+            <button id="ok2" type="button" class="btn btn-warning float-right">OK</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    
+    <!-- footer -->
+    <footer class="section footer">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <p class="text-center">© 2018 yokonoji</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+
+    <!--Number of DAI you can borrow-->
+    <script>
+      function daiLend() {
+        var eth_price = document.getElementById("ethPrice").value;
+        var eth_amount;  //ETH or PETH
+        var dai_price = 1.000000000000000000;
+        var rate = document.getElementById("range").value;
+        var peth_eth_rate = 1.040149667008275251;
+        var peth_price = eth_price * peth_eth_rate;
+        
+        var element1 = document.getElementById("lradio1");
+        var element2 = document.getElementById("lradio2");
+        
+        if (element1.checked) {
+          eth_amount = document.getElementById("ethAmount").value / peth_eth_rate; //PETH数量に変換
+          console.log(eth_amount);
+        } else if (element2.checked) {
+          eth_amount = document.getElementById("ethAmount").value;
+          console.log(eth_amount);
+        }
+ 
+        var eth_result = eth_amount * peth_price;
+        var max_lend = (eth_result * rate/100) / dai_price;
+        out1 = document.getElementById("output1");
+        out1.innerHTML = max_lend.toFixed(2);
+        
+        var ratio = 100 * (eth_amount * peth_price) / (max_lend * dai_price);
+        out4 = document.getElementById("output4");
+        out4.innerHTML = ratio.toFixed(2);
+        
+      }
+
+      var dai = document.getElementById("ok1");
+      dai.addEventListener("click", daiLend);
+    </script>
+
+    
+    <!--Check your collateral to debt ratio-->
+    <script>
+      function daiRate() {
+        var eth_price2 = document.getElementById("ethPrice2").value;
+        var eth_amount2;
+        var dai_price2 = 1.0; //document.getElementById("daiPrice2").value;
+        var dai_amount2 = document.getElementById("daiAmount2").value;
+        var peth_eth_rate2 = 1.040149667008275251;
+        var peth_price2 = eth_price2 * peth_eth_rate2;
+        
+        var element3 = document.getElementById("rradio1");
+        var element4 = document.getElementById("rradio2");
+        
+        if (element3.checked) {
+          eth_amount2 = document.getElementById("ethAmount2").value / peth_eth_rate2; //PETH数量に変換
+        } else if (element4.checked) {
+          eth_amount2 = document.getElementById("ethAmount2").value;
+        }
+
+        var col_deb_ratio = 100 * (eth_amount2 * peth_price2) / (dai_amount2 * dai_price2);
+        out2 = document.getElementById("output2");
+        out2.innerHTML = col_deb_ratio.toFixed(2);
+        
+        var default_eth = (1.5 * dai_amount2 * dai_price2) / eth_amount2 / peth_eth_rate2;  //PETHではなくETH価格にする
+        out3 = document.getElementById("output3");
+        out3.innerHTML = default_eth.toFixed(2);
+        
+      }
+
+      var dairate = document.getElementById("ok2");
+      dairate.addEventListener("click", daiRate);
+    </script>
+    
+    
+    <!--Slider-->
+    <script>
+      var elem = document.getElementById('range');
+        var rate = document.getElementById('rateValue');
+        
+        var rangeValue = function (elem, rate) {
+          return function(evt){
+            rate.innerHTML = elem.value;
+          }
+        }
+        elem.addEventListener('input', rangeValue(elem, rate));
+    </script>
+    
+    <!--Tooltip-->
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    </script>
+    
+  </body>
+  
+</html>
